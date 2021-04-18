@@ -4,14 +4,10 @@
 
 console.log("hello from Deno!");
 
-const port = 4500;
-
-console.log("starting web server on port: " + port);
-const body = new TextEncoder().encode("Hello World!");
-for await (const conn of Deno.listen({ port: port })) {
-  (async () => {
-    for await (const { respondWith } of Deno.serveHttp(conn)) {
-      respondWith(new Response(body));
-    }
-  })();
-}
+console.log("starting web server");
+addEventListener("fetch", (event) => {
+  const response = new Response("Hello World!", {
+    headers: { "content-type": "text/plain" },
+  });
+  event.respondWith(response);
+});

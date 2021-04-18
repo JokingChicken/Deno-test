@@ -4,10 +4,12 @@
 
 console.log("hello from Deno!");
 
+var count = 0;
+
 console.log("starting web server");
 addEventListener("fetch", (event) => {
-  const response = new Response("Hello World!", {
-    headers: { "content-type": "text/plain" },
-  });
-  event.respondWith(response);
+	const response = new Response("Hello World! this page has been visited " + count + " times!!", {
+		headers: { "content-type": "text/plain" },
+	});
+	event.respondWith(response);
 });

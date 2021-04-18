@@ -4,7 +4,7 @@
 
 console.log("hello from deno!!");
 
-const port = 4500;.
+const port = 4500;
 
 console.log("starting web server on port: " + port);
 const body = new TextEncoder().encode("Hello World");
